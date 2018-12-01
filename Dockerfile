@@ -1,12 +1,12 @@
-FROM node:10-slim as builder
+FROM node:10-slim
 
 COPY . /app
 RUN cd /app && \
     yarn && \
-    yarn run build
+    yarn run build && \
+    rm -rf node_modules && \
+    yarn install --production
 
-FROM node:10-slim
-COPY --from=builder /app/dist /app
 WORKDIR /app
 
-CMD ["node", "/app/main.js"]
+CMD ["node", "/app/dist/main.js"]
