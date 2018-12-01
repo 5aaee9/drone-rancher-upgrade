@@ -51,4 +51,10 @@ export class Rancher {
         const info = await client.get('')
         return info.data.state
     }
+
+    async finishUpgrade() {
+        const client = this.getClient()
+
+        await client.post('?action=finishupgrade', '')
+    }
 }

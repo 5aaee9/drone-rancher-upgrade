@@ -35,9 +35,11 @@ async function main() {
         logger.info('sent upgrade request')
 
         logger.info('wait service goto active state')
-        while (await client.getServiceState() !== State.ACTIVE) {
+        while (await client.getServiceState() !== State.UPGRADED) {
             await sleep(2000)
         }
+
+        await client.finishUpgrade()
 
         logger.info('upgrade finish')
     } else {
