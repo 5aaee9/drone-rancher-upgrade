@@ -1,0 +1,12 @@
+kind: pipeline
+name: default
+
+steps:
+- name: docker-panel
+  image: plugins/docker
+  settings:
+    repo: indexyz/drone-rancher-upgrade
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
