@@ -8,13 +8,13 @@ const {
     PLUGIN_ACCESS_TOKEN,
     PLUGIN_SCRECT_TOKEN,
     PLUGIN_ENV,
-    DRONE_COMMIT
+    DRONE_COMMIT_MESSAGE
 } = process.env
 
 const logger = getLogger()
 
 async function main() {
-    if (DRONE_COMMIT.indexOf('ci deploy') !== -1) {
+    if (DRONE_COMMIT_MESSAGE.indexOf('ci deploy') !== -1) {
         logger.info('detect commit name with ci deploy, start deploy')
 
         const config: RancherConfig = {
