@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: docker-panel
+- name: docker-image
   image: plugins/docker
   settings:
     repo: indexyz/drone-rancher-upgrade
